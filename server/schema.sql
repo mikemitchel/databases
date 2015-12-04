@@ -3,7 +3,10 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  /* Describe your table here.*/
+  username varchar(15),
+  message varchar(150),
+  roomname varchar(30),
+  createdAt char(24)
 );
 
 /* Create other tables and define schemas for them here! */
