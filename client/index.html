@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- dependencies -->
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src ="underscore/underscore.js"></script>
+    <!-- your scripts -->
+    <!-- <script src="env/config.js"></script> -->
+    <script src="env/config.example.js"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1>chatter<em>box</em></h1><br>
+      <div id="roomLine">
+        <div id="roomLeft">Room:
+          <select name="rooms" id="roomSelect">
+            <option value="lobby" class="room">lobby</option>
+            <option value="testing" class="room">testing</option>
+            <option value="emptyRoom" class="room" id="emptyRoom"></option>
+          </select>
+        </div>
+        <div id="roomRight">
+          <form>
+            <textarea align="right" cols="15" rows="1" id="addRoom" placeholder="room..."></textarea>
+            <button type="button" id="addRoomButton">Create a new room</button>
+          </form>
+        </div>
+      </div>
+      <div id="messageLine">
+        <form>
+          <input type="text" message="message" id="input" placeholder="Talk to me...">
+          <button type="button" id="submit">Submit</button>
+        </form>
+      </div>
+      <div class="message">
+        <span class ="user"></span>
+        <span class ="messageText"></span>
+      </div>
+    </div>
+  </body>
+</html>
