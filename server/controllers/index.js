@@ -1,5 +1,6 @@
 var models = require('../models');
 var bluebird = require('bluebird');
+var sql = require('../db/index.js');
 
 // {
 //   "results": [
@@ -27,6 +28,16 @@ module.exports = {
     },
     // a function which handles posting a message to the database
     post: function (req, res) {
+      connection.connect();
+      var sql = "SELECT * FROM ?? WHERE ?? = ?";
+var inserts = ['users', 'id', userId];
+sql = mysql.format(sql, inserts);
+
+      connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+
+  console.log('The solution is: ', rows[0].solution);
+});
       console.log('POST req.body', req.body)
       // req.body holds the data to store in the database.
       // Store it here.
@@ -39,6 +50,8 @@ module.exports = {
 
       // Send all data here.
       res.end(JSON.stringify(req.body, null, 2));
+
+      connection.end();
     }
   },
 
