@@ -23,29 +23,31 @@ module.exports = {
   messages: {
     // a function which handles a get request for all messages
     get: function (req, res) {
-
+      //
     },
     // a function which handles posting a message to the database
     post: function (req, res) {
+      console.log('POST req.body', req.body)
       // req.body holds the data to store in the database.
+      // Store it here.
 
-      res.setHeader('Content-Type', 'application/JSON')
-      res.write('you posted:\n')
-      res.end(JSON.stringify(req.body, null, 2))
+      var statusCode = 201;
+
+      res.setHeader('Content-Type', 'application/JSON');
+      res.writeHead(statusCode);
+      res.write('you posted:\n');
+
+      // Send all data here.
+      res.end(JSON.stringify(req.body, null, 2));
     }
   },
 
   // http://127.0.0.1:3000/classes/users
   users: {
     // Ditto as above
-    get: function (req, res) {},
-    post: function (req, res) {}
+    get: function (req, res) {exports.messages.get()},
+    post: function (req, res) {exports.messages.post()}
   }
 };
 
-var defaultCorsHeaders = {
-  "access-control-allow-origin": "*",
-  "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
-  "access-control-allow-headers": "content-type, accept",
-  "access-control-max-age": 10 // Seconds.
-};
+
